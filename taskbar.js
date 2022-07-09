@@ -23,7 +23,7 @@ const TASKBAR_APPS = [
     }, {
         "name": "NOPPPE",
         "icon": "assets/spotify-icon.png"
-    },
+    }
 ]
 
 class taskbar extends HTMLElement {
