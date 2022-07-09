@@ -32,7 +32,7 @@ body {
     left: 0;
     background: url(assets/backgrnd.jpg) center;
     background-size: cover;
-    z-index: -1;
+    z-index: 0;
 }
 
 task-bar {
@@ -115,6 +115,7 @@ taskbar-item img[src="assets/windows11-icon.png"]:active {
     transition: .3s linear;
     opacity: 0;
     animation-fill-mode: forwards;
+    z-index: 900;
 }
 
 @keyframes titleDisplay {
@@ -149,11 +150,11 @@ time-date {
     box-shadow: 0 5px 10px rgba(0, 0, 0, .8);
     width: 645px;
     left: calc(50% - 645px / 2);
-    transform: translateY(20%) scaleY(.8);
+    transform: translateY(95%);
     opacity: 0;
     background: rgba(34, 34, 34, 0.808);
     backdrop-filter: blur(100px);
-    border: .5px solid rgba(167, 167, 167, 0.2);
+    border: .5px solid rgba(167, 167, 167, 0.3);
     border-radius: 10px;
     padding: 30px;
     transition: .15s ease-out;
@@ -167,7 +168,8 @@ time-date {
 }
 
 .startMenu .search {
-    background: rgba(61, 61, 61, 0.5);
+    background: rgba(255, 255, 255, .075);
+    box-shadow: inset 0 0 1px rgba(255, 255, 255, .075);
     padding: 5px 20px;
     border: 1px solid rgba(190, 190, 190, 0.1);
     height: 43px;
@@ -182,6 +184,7 @@ time-date {
 .startMenu .search:focus {
     border-bottom: 2.5px solid var(--accent-color);
     background: rgba(24, 24, 24, 0.7);
+    box-shadow: none !important;
 }
 
 .startMenu button {
@@ -260,11 +263,11 @@ time-date {
 /* recommendations */
 
 .startMenu .recommendations .container {
-    width: 90%;
-    height: 180px;
+    width: 95%;
+    height: 155px;
 }
 
-.startMenu .recommendations .container div {
+.startMenu .recommendations .container > div {
     width: calc(100% / 2);
     height: calc(100% / 3);
     display: flex;
@@ -272,15 +275,44 @@ time-date {
     align-items: center;
     border-radius: 4px;
     transition: .08 ease-out;
-    padding: 10px;
+    padding: 10px 15px;
 }
 
-.startMenu .recommendations .container div:hover {
+.startMenu .recommendations .container > div .infos {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: left;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+.startMenu .recommendations .container > div .infos .secondary {
+    opacity: .65;
+}
+
+.startMenu .recommendations .container > div:hover {
     background: rgba(255, 255, 255, .1);
 }
 
 .startMenu .recommendations .container div img {
-    height: 43%;
-    margin-bottom: 5px;
+    height: 100%;
     aspect-ratio: 1 / 1;
+    margin-right: 15px;
+}
+
+.startMenu .actions {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 0 0 10px 10px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 62px;
+    border-top: 1px solid rgba(167, 167, 167, 0.3);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 65px;
 }

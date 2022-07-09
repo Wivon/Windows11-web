@@ -1,8 +1,8 @@
 const PINNED_APPS = [
     { name: 'Discord', icon: 'assets/discord-icon.png'},
     { name: 'Discord', icon: 'assets/discord-icon.png'},
-    { name: 'Discord', icon: 'assets/discord-icon.png'},
-    { name: 'Spotify', icon: 'assets/spotify-icon.png'},
+    { name: 'Explorer', icon: 'assets/explorer-icon.png'},
+    { name: 'Wallpaper', icon: 'assets/wallpaper-icon.png'},
     { name: 'Spotify', icon: 'assets/spotify-icon.png'},
     { name: 'Discord', icon: 'assets/discord-icon.png'},
     { name: 'Spotify', icon: 'assets/spotify-icon.png'},
@@ -20,8 +20,12 @@ const PINNED_APPS = [
 ]
 
 RECOMENDED_ITEMS = [
+    { name: 'Discord', icon: 'assets/discord-icon.png', time: '4min ago'},
     { name: 'Spotify', icon: 'assets/spotify-icon.png', time: '25min ago'},
-    { name: 'Segoe UI', icon: 'assets/discord-icon.png', time: 'Yesterday at 17:18'}
+    { name: 'Segoe UI', icon: 'assets/folder-icon.png', time: 'Yesterday at 17:18'},
+    { name: 'Segoe UI', icon: 'assets/folder-icon.png', time: 'Monday at 14:27'},
+    { name: 'Segoe UI', icon: 'assets/folder-icon.png', time: 'Saturday at 13:44'},
+    { name: 'SurvivalGame.lua', icon: 'assets/folder-icon.png', time: '4 weeks ago'}
 ]
 
 class startMenu extends HTMLElement {
@@ -51,7 +55,7 @@ class startMenu extends HTMLElement {
                 <img draggable="false" src="${app.icon}">
                 <div class="infos">
                     <span>${app.name}</span>
-                    <span>${app.time}</span>
+                    <span class="secondary">${app.time}</span>
                 </div>
             `
             container.appendChild(newItem)
@@ -61,10 +65,12 @@ class startMenu extends HTMLElement {
     show() {
         this.classList.add('active')
         this.querySelector('.search').focus()
+        document.querySelector("task-bar > taskbar-item:nth-child(1)").classList.add('active')
     }
 
     hide() {
         this.classList.remove('active')
+        document.querySelector("task-bar > taskbar-item:nth-child(1)").classList.remove('active')
     }
 }
 
@@ -73,10 +79,10 @@ function toggleStartMenu() {
 
     if (!startMenu.classList.contains('active')) {
         startMenu.show()
-        this.classList.add('active')
+        document.querySelector("task-bar > taskbar-item:nth-child(1)").classList.add('active')
     } else {
         startMenu.hide()
-        this.classList.remove('active')
+        document.querySelector("task-bar > taskbar-item:nth-child(1)").classList.remove('active')
     }
 }
 

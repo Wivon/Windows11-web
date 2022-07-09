@@ -6,6 +6,9 @@ const TASKBAR_APPS = [
         "name": "Spotify",
         "icon": "assets/spotify-icon.png"
     }, {
+        "name": "Explorer",
+        "icon": "assets/explorer-icon.png"
+    }, {
         "name": "Discord2dzq",
         "icon": "assets/discord-icon.png"
     }, {
