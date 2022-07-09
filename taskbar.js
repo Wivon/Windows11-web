@@ -66,6 +66,10 @@ class taskbarItem extends HTMLElement {
         }
         this.onclick = () => {
             this.hideTitle()
+            // open start menu if it's the right item
+            if (this.querySelector('img').getAttribute('src') == 'assets/windows11-icon.png') {
+                toggleStartMenu()
+            }
         }
     }
 
@@ -93,10 +97,11 @@ class taskbarItem extends HTMLElement {
     }
 }
 
-class timeAndDate extends HTMLElement {
+class timeAndDate extends taskbarItem {
     constructor() {
         super()
         this.innerHTML = "20:31<br>08/07/2022"
+        this.setAttribute('app-name', '8th July 2022')
     }
 }
 

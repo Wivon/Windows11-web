@@ -12,6 +12,16 @@
 
 html {
     overflow: hidden;
+    height: 100vh;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+:root {
+    --accent-color: #1d93ec;
 }
 
 .desktop {
@@ -75,6 +85,11 @@ taskbar-item:active img {
     transform: scale(.85);
 }
 
+taskbar-item.active {
+    background: rgba(255, 255, 255, .08);
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, .06);
+}
+
 taskbar-item img[src="assets/windows11-icon.png"] {
     
     filter: brightness(1.3);
@@ -129,5 +144,110 @@ time-date {
 
 /* start menu */
 .startMenu {
-    
+    position: absolute;
+    bottom: 60px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .8);
+    width: 645px;
+    left: calc(50% - 645px / 2);
+    transform: translateY(20%) scaleY(.8);
+    opacity: 0;
+    background: rgba(34, 34, 34, 0.808);
+    backdrop-filter: blur(100px);
+    border: .5px solid rgba(167, 167, 167, 0.2);
+    border-radius: 10px;
+    padding: 30px;
+    transition: .15s ease-out;
+    height: 725px;
+    z-index: 800;
+}
+
+.startMenu.active {
+    transform: none;
+    opacity: 1;
+}
+
+.startMenu .search {
+    background: rgba(61, 61, 61, 0.5);
+    padding: 5px 20px;
+    border: 1px solid rgba(190, 190, 190, 0.1);
+    height: 43px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.startMenu .search:focus {
+    border-bottom: 2.5px solid var(--accent-color);
+    background: rgba(24, 24, 24, 0.7);
+}
+
+.startMenu button {
+    background: rgba(255, 255, 255, .075);
+    border: none;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 3px rgba(255, 255, 255, .075);
+    transition: .1s;
+    height: min-content;
+}
+
+.startMenu button:hover {
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, .05);
+    background: rgba(255, 255, 255, .1);
+}
+
+.startMenu div .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    margin: 10px 0;
+}
+
+.startMenu div .top h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.startMenu div .container {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 250px;
+    aspect-ratio: 1 / 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.startMenu .pinned .container div {
+    width: calc(100% / 6);
+    height: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    transition: .08 ease-out;
+}
+
+.startMenu .pinned .container div:hover {
+    background: rgba(255, 255, 255, .1);
+}
+
+.startMenu .pinned .container div img {
+    height: 45%;
+    margin-bottom: 8px;
+    aspect-ratio: 1 / 1;
+}
+
+.startMenu .pinned .container div span {
+    font-size: 13px;
 }

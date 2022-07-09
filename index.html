@@ -9,18 +9,19 @@
     <!-- links -->
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
+    <script src="startMenu.js" defer></script>
     <script src="taskbar.js" defer></script>
 </head>
 <body>
     <div class="desktop"></div>
     <task-bar></task-bar>
     <!-- start menu -->
-    <div class="startMenu">
-        <input type="text" class="search">
+    <start-menu class="startMenu">
+        <input type="text" placeholder="Type here to search" class="search">
         <!-- pinned apps -->
         <div class="pinned">
             <div class="top">
-                <h2>pinned</h2>
+                <h3>Pinned</h3>
                 <button>all apps ></button>
             </div>
             <div class="container"></div>
@@ -28,11 +29,11 @@
         <!-- recommended apps & files -->
         <div class="recommendations">
             <div class="top">
-                <h2>Our recommendations</h2>
+                <h3>Our recommendations</h3>
                 <button>More ></button>
             </div>
             <div class="container"></div>
         </div>
-    </div>
+    </start-menu>
 </body>
 </html>
