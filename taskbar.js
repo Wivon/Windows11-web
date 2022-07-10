@@ -9,20 +9,11 @@ const TASKBAR_APPS = [
         "name": "Explorer",
         "icon": "assets/explorer-icon.png"
     }, {
-        "name": "Discord2dzq",
-        "icon": "assets/discord-icon.png"
+        "name": "Notepad",
+        "icon": "assets/notepad-icon.png"
     }, {
-        "name": "dzqdzqd",
-        "icon": "assets/discord-icon.png"
-    }, {
-        "name": "Sdzjgd",
-        "icon": "assets/discord-icon.png"
-    }, {
-        "name": "Spotifyff",
-        "icon": "assets/spotify-icon.png"
-    }, {
-        "name": "NOPPPE",
-        "icon": "assets/spotify-icon.png"
+        "name": "Wallpaper",
+        "icon": "assets/wallpaper-icon.png"
     }
 ]
 
@@ -33,18 +24,24 @@ class taskbar extends HTMLElement {
     }
 
     renderItems() {
-        this.createTaskbarAppItem('Start Menu', 'assets/windows11-icon.png')
-        TASKBAR_APPS.forEach(app => this.createTaskbarAppItem(app.name, app.icon))
+        this.createTaskbarAppItem('Start Menu', 'assets/windows11-icon.png', -1)
+        TASKBAR_APPS.forEach((app, index) => this.createTaskbarAppItem(app.name, app.icon, index))
         this.createTimeAndDateWidget()
     }
 
-    createTaskbarAppItem(name, icon) {
+    createTaskbarAppItem(name, icon, i) {
         let newItem = document.createElement('taskbar-item')
         newItem.innerHTML = `
             <img draggable="false" src="${icon}">
         `
         newItem.classList.add('app')
         newItem.setAttribute('app-name', name)
+        // display effect
+        if (i+1 == 0) {
+            newItem.style.animationDelay = "0.05s"
+        } else {
+            newItem.style.animationDelay = "0." + (((i+2) * 10) / 2) + "s"
+        }
         this.appendChild(newItem)
     }
 
@@ -58,6 +55,7 @@ class taskbarItem extends HTMLElement {
     constructor() {
         super()
         this.createMouseEvents()
+        setTimeout(() => this.resetAnimationDelay(), 3000)
     }
 
     createMouseEvents() {
@@ -97,6 +95,10 @@ class taskbarItem extends HTMLElement {
         if (document.querySelector('.TaskbarItemTitle')) {
             document.querySelector('.TaskbarItemTitle').remove()
         }
+    }
+
+    resetAnimationDelay() {
+        this.style.animationDelay = "0s"
     }
 }
 

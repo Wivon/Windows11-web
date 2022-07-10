@@ -61,6 +61,19 @@ task-bar > * {
     transition: background .15s ease-in-out;
     transition: box-shadow .25s ease-in-out;
     margin: 0 2px;
+    animation: taskbarItemDisplay .25s ease-out;
+    transform: translateY(120%);
+    animation-fill-mode: forwards;
+}
+
+@keyframes taskbarItemDisplay {
+    from {
+        transform: translateY(120%);
+    } 75% {
+        transform: translateY(-10%);
+    }to {
+        transform: translateY(0);
+    }
 }
 
 taskbar-item {
@@ -141,6 +154,17 @@ time-date {
     font-size: 12px;
     text-align: right;
     font-weight: 200;
+    animation: TaskbarWidgetDisplay .25s ease-out;
+}
+
+@keyframes TaskbarWidgetDisplay {
+    from {
+        transform: translateY(70%);
+    } 70% {
+        transform: translateY(-70%);
+    } to {
+        transform: translateY(-50%);
+    }
 }
 
 /* start menu */
