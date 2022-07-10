@@ -394,3 +394,8 @@ time-date {
     filter: invert();
     opacity: .85;
 }
+
+context-menu {
+    z-index: 900;
+    position: absolute;
+}
