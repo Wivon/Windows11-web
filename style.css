@@ -266,7 +266,7 @@ time-date {
 }
 
 .startMenu .pinned .container div:hover {
-    background: rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, .07);
 }
 
 .startMenu .pinned .container div img {
@@ -316,7 +316,11 @@ time-date {
 }
 
 .startMenu .recommendations .container > div:hover {
-    background: rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, .07);
+}
+
+.startMenu .recommendations .container > div:active {
+    background: rgba(255, 255, 255, .05);
 }
 
 .startMenu .recommendations .container div img {
@@ -338,11 +342,36 @@ time-date {
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    padding: 0 65px;
+    padding: 0 45px;
+    padding-right: 55px;
+}
+
+.startMenu .actions .user {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 15px;
+    height: 43px;
+    border-radius: 5px;
+}
+
+.startMenu .actions .user:hover {
+    background: rgba(255, 255, 255, .05);
+}
+
+.startMenu .actions .user img {
+    height: 80%;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.startMenu .actions .user span {
+    font-size: 13px;
 }
 
 .startMenu .shutdown {
-    height: 35px;
+    height: 43px;
     aspect-ratio: 1;
     padding: 0;
     background: none;
@@ -351,14 +380,16 @@ time-date {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .startMenu .shutdown:hover {
     background: rgba(255, 255, 255, .05);
+    box-shadow: none;
 }
 
 .startMenu .shutdown img {
-    height: 80%;
+    height: 65%;
     aspect-ratio: 1;
     filter: invert();
     opacity: .85;
