@@ -3,7 +3,7 @@ const PINNED_APPS = [
     { name: 'Discord', icon: 'assets/discord-icon.png'},
     { name: 'Explorer', icon: 'assets/explorer-icon.png'},
     { name: 'Wallpaper', icon: 'assets/wallpaper-icon.png'},
-    { name: 'Spotify', icon: 'assets/spotify-icon.png'},
+    { name: 'Notepad', icon: 'assets/notepad-icon.png'},
     { name: 'Discord', icon: 'assets/discord-icon.png'},
     { name: 'Spotify', icon: 'assets/spotify-icon.png'},
     { name: 'Spotify', icon: 'assets/spotify-icon.png'},
@@ -22,10 +22,10 @@ const PINNED_APPS = [
 RECOMENDED_ITEMS = [
     { name: 'Discord', icon: 'assets/discord-icon.png', time: '4min ago'},
     { name: 'Spotify', icon: 'assets/spotify-icon.png', time: '25min ago'},
-    { name: 'Segoe UI', icon: 'assets/folder-icon.png', time: 'Yesterday at 17:18'},
-    { name: 'Segoe UI', icon: 'assets/folder-icon.png', time: 'Monday at 14:27'},
-    { name: 'Segoe UI', icon: 'assets/folder-icon.png', time: 'Saturday at 13:44'},
-    { name: 'SurvivalGame.lua', icon: 'assets/folder-icon.png', time: '4 weeks ago'}
+    { name: 'Segoe UI fonts', icon: 'assets/folder-icon.png', time: 'Yesterday at 17:18'},
+    { name: 'style.css', icon: 'assets/notepad-icon.png', time: 'Monday at 14:27'},
+    { name: 'startMenu.js', icon: 'assets/notepad-icon.png', time: 'Saturday at 13:44'},
+    { name: 'SurvivalGame.lua', icon: 'assets/notepad-icon.png', time: '4 weeks ago'}
 ]
 
 class startMenu extends HTMLElement {
