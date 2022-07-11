@@ -8,4 +8,13 @@ document.oncontextmenu = (e) => {
 
 DESKTOP.onclick = () => {
     START_MENU.hide()
+    if (CURRENT_CONTEXT_MENU) {
+        CURRENT_CONTEXT_MENU.close()
+    }
+}
+
+TASKBAR.onclick = () => {
+    if (CURRENT_CONTEXT_MENU) {
+        CURRENT_CONTEXT_MENU.close()
+    }
 }

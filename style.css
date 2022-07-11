@@ -61,7 +61,7 @@ task-bar > * {
     transition: background .15s ease-in-out;
     transition: box-shadow .25s ease-in-out;
     margin: 0 2px;
-    animation: taskbarItemDisplay .25s ease-out;
+    animation: taskbarItemDisplay .3s ease-out;
     transform: translateY(120%);
     animation-fill-mode: forwards;
 }
@@ -69,8 +69,8 @@ task-bar > * {
 @keyframes taskbarItemDisplay {
     from {
         transform: translateY(120%);
-    } 75% {
-        transform: translateY(-10%);
+    } 60% {
+        transform: translateY(-15%);
     }to {
         transform: translateY(0);
     }
@@ -398,4 +398,40 @@ time-date {
 context-menu {
     z-index: 900;
     position: absolute;
+    background: rgba(0, 0, 0, .4);
+    backdrop-filter: blur(35px) saturate(150%);
+    padding: 7px;
+    width: 280px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    animation: contextMenuFade .1s linear;
+}
+
+@keyframes contextMenuFade {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+context-menu hr {
+    opacity: .2;
+    width: 102%;
+    transform: translateX(-1%);
+    margin: 4px 0;
+}
+
+context-menu button {
+    width: 100%;
+    padding: 8px 15px;
+    background: transparent;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    text-align: left;
+}
+
+context-menu button:hover {
+    background: rgba(255, 255, 255, .1);
 }

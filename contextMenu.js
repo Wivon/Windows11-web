@@ -1,3 +1,5 @@
+let CURRENT_CONTEXT_MENU = null
+
 DESKTOP.oncontextmenu = (e) => {
     let contextMenu = document.createElement('context-menu')
     document.body.appendChild(contextMenu)
@@ -7,6 +9,7 @@ DESKTOP.oncontextmenu = (e) => {
 class contextMenu extends HTMLElement {
     constructor() {
         super()
+        CURRENT_CONTEXT_MENU = this
     }
 
     render(x, y) {
@@ -14,7 +17,17 @@ class contextMenu extends HTMLElement {
             <button>Display</button>
             <button>Sort</button>
             <button>refresh</button>
-        `
+            <hr>
+            <button>Cancel delete</button>
+            <button>New</button>
+            <hr>
+            <button>Display settings</button>
+            <button>Customize</button>
+            <hr>
+            <button>Open in terminal</button>
+            <hr>
+            <button>Show more options</button>
+            `
 
         this.style.left = x + "px"
         this.style.top = y + "px"
@@ -31,7 +44,7 @@ class contextMenu extends HTMLElement {
     }
 
     close() {
-        this.remove
+        this.remove()
     }
 }
 
