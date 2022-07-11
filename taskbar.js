@@ -40,7 +40,7 @@ class taskbar extends HTMLElement {
         if (i+1 == 0) {
             newItem.style.animationDelay = "0.05s"
         } else {
-            newItem.style.animationDelay = "0." + (((i+2) * 10) / 2) + "s"
+            newItem.style.animationDelay = (i+1)*40 + "ms"
         }
         this.appendChild(newItem)
     }
@@ -105,8 +105,25 @@ class taskbarItem extends HTMLElement {
 class timeAndDate extends taskbarItem {
     constructor() {
         super()
-        this.innerHTML = "20:31<br>08/07/2022"
-        this.setAttribute('app-name', '8th July 2022')
+        this.innerHTML = "00:00<br>00/00/0000"
+        this.setAttribute('app-name', 'loading...')
+        this.updateTime()
+    }
+
+    updateTime() {
+        this.setTime()
+        setTimeout(() => {
+            this.setTime()
+        }, 1000)
+    }
+
+    setTime() {
+        let time = new Date()
+        let hours = (time.getHours() < 10 ? '0' : '') + time.getHours()
+        let minutes = (time.getMinutes() < 10 ? '0' : '') + time.getMinutes()
+        let month = (time.getMonth() < 10 ? '0' : '') + time.getMonth()
+        let day = (time.getDate() < 10 ? '0' : '') + time.getDate()
+        this.innerHTML = `${hours}:${minutes}<br>${month}/${day}/${time.getFullYear()}`
     }
 }
 
